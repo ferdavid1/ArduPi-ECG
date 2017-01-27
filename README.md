@@ -1,4 +1,4 @@
 # Ardu-Pi-ECG
-toolkit for full analysis of Arduino sensor pulse/heart rate signal, using Python ECG tools on synced Raspberry Pi
+toolkit for full analysis of Arduino sensor pulse/heart rate signal, using Python ECG tools.
 
-Requirements: Arduino Uno, Arduino IDE, RPi 3 with Python 3, Arduino Pulse Sensor
+Requirements: Arduino Uno, Arduino IDE, Python 3, Matplotlib, Numpy, PySerial, Arduino Pulse Sensor
