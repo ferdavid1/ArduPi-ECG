@@ -33,7 +33,7 @@ for i in range(0,26):
 while True:
     while (serialArduino.inWaiting()==0):
         pass
-    print("readline()")
+    print("reading line...")
     valueRead = serialArduino.readline(500)
 
     #check if valid value can be casted
@@ -50,4 +50,4 @@ while True:
         else:
             print("Invalid! too large")
     except ValueError:
-        print("Invalid! cannot cast")
+        print("---")
