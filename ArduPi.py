@@ -5,6 +5,8 @@ import atexit
 import pandas as pd
 from Modelrithm import Modelrithm
 import numpy as np
+import time 
+import sys
 
 values = []
 
@@ -35,11 +37,18 @@ for i in range(0,26):
 
 # heart rate maximum = 220 - age
 # target heart rate  = within the range of 50 to 85 percent of your maximum heart rate
+
+def Countdown(t):
+    for i in range(t,0,-1):
+        print("Please wait %d seconds for the pulse sensor to adjust to your ear pulse..." % i,
+        sys.stdout.flush())
+        time.sleep(1)
+    return
+
+Countdown(10)
+
 age = input("What is your age?\n")
 athletics = input("Are you an athlete? (Y/N)\n")
-maximum = 220 - int(age)
-target = (maximum*.5,  maximum*.60)
-
 
 # while True:
 for i in range(3000):
@@ -64,26 +73,31 @@ for i in range(3000):
     except ValueError:
         print("---")
 
-print("\nYour TARGET heart rate range is in: {} BPM during moderately intense physical activity\n".format(target))
-
 with open('Values.txt', 'w') as data:
     data.write(str(values).strip('[]'))
 
 array_values = np.array(values)
 
 def Analysis():
+    maximum = 220 - int(age)
+    target = (maximum*.5,  maximum*.60)
+    print("\nYour TARGET heart rate range is in: {} BPM during moderately intense physical activity\n".format(target))
     print("Your average RESTING heart rate is: {} BPM\n".format(np.mean(array_values)))
     print("Your instantaneous heart rate tended to deviate by: {}\n".format(np.std(array_values)))
     if int(age) in range(0, 90):
-        if np.mean(array_values) in range(61, 101):
-            print("You have a healthy resting heart rate")
+        if np.mean(array_values) >= 60 and np.mean(array_values) <= 100:
+            print("You have a healthy resting heart rate\n")
 
-        elif np.mean(array_values) >= 100:
-                print("You are at risk for tachychardia, please consult your doctor.")
-        else:
+        elif np.mean(array_values) > 100:
+                print("You are at risk for tachychardia, please consult your doctor.\n")
+
+        elif np.mean(array_values) < 60 and np.mean(array_values) >=40:
             if athletics == 'Y' or athletics == 'y':
-                print("You have a healthy resting heart rate")
-            print("You are at risk for bradychardia, please consult your doctor.")
+                print("You have a healthy resting heart rate\n")
+            else:
+                print("You are at risk for bradychardia, please consult your doctor.\n")
+        else:
+                print("You are at risk for bradychardia, please consult your doctor.\n")
     return 
 
 Analysis()
