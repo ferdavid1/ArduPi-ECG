@@ -10,7 +10,8 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
   - https://www.ncbi.nlm.nih.gov/pubmed/10847190
   - https://www.ncbi.nlm.nih.gov/pubmed/9842406
   - https://www.ncbi.nlm.nih.gov/pubmed/16387047
-- try chaotic analysis for variability as well
+- Extrapolate prediction using Wavelet analysis
+- try chaotic analysis for variability 
 - relevant papers for this:
   - http://www.scielo.br/scielo.php?script=sci_arttext&pid=S2358-04292016000500005
   - https://www.ncbi.nlm.nih.gov/pubmed/17593181
