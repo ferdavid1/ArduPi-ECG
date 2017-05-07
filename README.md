@@ -4,10 +4,8 @@
 
 Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Numpy, PySerial, Arduino Pulse Sensor
 ## TODO:
-- Catch pulse sensor output to a txt file for analysis 
-- Using MIT's two open-source HRV datasets for a reference sample
-- make predictions on heart rate using a linear regression (given the subject's conditions don't move)
-- make  a better analysis of variability using fourier analysis
+- Use LR model on real data
+- Extrapolate prediction using fourier analysis
 - relevant papers for this:
   - https://www.ncbi.nlm.nih.gov/pubmed/10847190
   - https://www.ncbi.nlm.nih.gov/pubmed/9842406
@@ -19,3 +17,5 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
   - http://geoffboeing.com/2015/03/chaos-theory-logistic-map/
   - Pynamical - nonlinear visualization - https://github.com/gboeing/pynamical
   - https://www.researchgate.net/publication/306226253_Visual_Analysis_of_Nonlinear_Dynamical_Systems_Chaos_Fractals_Self-Similarity_and_the_Limits_of_Prediction
+- Implement thermistor??
+  - This would effectively become an extremely complicated polygraph haha
