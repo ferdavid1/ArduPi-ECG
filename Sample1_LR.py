@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-values = pd.read_csv('MIT_1.txt')
+values = pd.read_table('MIT_1.txt')
 
 train_size = int(len(values)*0.5) 
 test_size = len(values) - train_size
