@@ -1,6 +1,6 @@
 # Ardu-Pi-ECG
 - toolkit for full HRV (heart rate variability) analysis of ECG data using groundbreaking new techniques (linear regression, fourier and wavelet transforms, chaotic analysis)
-- script for real-time python display of bpm data from Arduino Pulse Sensor, on Arduino or Raspberry Pi, using Matplotlib.
+- script for real-time python display of bpm data from Arduino Pulse Sensor, on Arduino Uno, using Matplotlib.
 
 Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Numpy, PySerial, Arduino Pulse Sensor
 ## TODO:
