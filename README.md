@@ -4,19 +4,26 @@
 
 Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Numpy, PySerial, Arduino Pulse Sensor
 ## TODO:
-- Use LR model on real data
-- Extrapolate prediction using fourier analysis
-- relevant papers for this:
+- Use models on real data
+- Build Wavelet model
+- Build Chaotic model
+- Implement thermistor??
+  - This would effectively become an extremely complicated polygraph haha
+
+## Relevant papers:
+- Fourier Extrapolation
   - https://www.ncbi.nlm.nih.gov/pubmed/10847190
   - https://www.ncbi.nlm.nih.gov/pubmed/9842406
   - https://www.ncbi.nlm.nih.gov/pubmed/16387047
-- Extrapolate prediction using Wavelet analysis
-- try chaotic analysis for variability 
-- relevant papers for this:
+
+- Wavelet Extrapolation
+  - https://hal.archives-ouvertes.fr/hal-00414210/document
+  - http://epubs.siam.org/doi/abs/10.1137/0916005
+  - http://geodus1.ta.tudelft.nl/PrivatePages/C.P.A.Wapenaar/6_Proceedings/Soc.Expl.Geoph/Seg_94b.pdf
+
+- Chaotic Analysis:
   - http://www.scielo.br/scielo.php?script=sci_arttext&pid=S2358-04292016000500005
   - https://www.ncbi.nlm.nih.gov/pubmed/17593181
   - http://geoffboeing.com/2015/03/chaos-theory-logistic-map/
   - Pynamical - nonlinear visualization - https://github.com/gboeing/pynamical
   - https://www.researchgate.net/publication/306226253_Visual_Analysis_of_Nonlinear_Dynamical_Systems_Chaos_Fractals_Self-Similarity_and_the_Limits_of_Prediction
-- Implement thermistor??
-  - This would effectively become an extremely complicated polygraph haha
