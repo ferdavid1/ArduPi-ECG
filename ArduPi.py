@@ -73,7 +73,7 @@ for i in range(3000):
     except ValueError:
         print("---")
 
-with open('Values.txt', 'w') as data:
+with open('Real_Values.txt', 'w') as data:
     data.write(str(values).strip('[]'))
 
 array_values = np.array(values)
