@@ -21,28 +21,28 @@ print('\n***********************************\n')
 
 # print('Predictive Analysis: Wavelet Extrapolation\n')
 # def Wavelet():
-#     os.chdir('Wavelet')
+#     os.chdir('../Wavelet')
 #     exec(open("Wavelet.py").read())
 # Wavelet()
 # print('\n***********************************\n')
 
 # print('Predictive Analysis: Chaotic System\n')
 # def Chaotic():
-#     os.chdir('Chaotic')
+#     os.chdir('../Chaotic')
 #     exec(open("Chaotic.py").read())
 # Chaotic()
 # print('\n***********************************\n')
 
-# print('Predictive Analysis: Deep Learning: Linear Regression\n')
-# def NeuralNetLR():
-#     os.chdir('NeuralNetRegression')
-#     exec(open("LR.py").read())
-# NeuralNetLR()
-# print('\n***********************************\n')
+print('Predictive Analysis: Deep Learning: Linear Regression\n')
+def NeuralNetLR():
+    os.chdir('../NeuralNetRegression')
+    exec(open("LR.py").read())
+NeuralNetLR()
+print('\n***********************************\n')
 
 # print('Predictive Analysis: Deep Learning: TBD\n')
 # def DeeperNN():
-#     os.chdir('DeeperNN')
+#     os.chdir('../DeeperNN')
 #     exec(open("NN.py").read())
 # DeeperNN()
 # print('\n***********************************\n')

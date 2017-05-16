@@ -4,7 +4,6 @@ import pylab as pl
 import numpy as np
 
 values = pd.read_table('../Real_Values.txt')
-og = pd.read_table('../Real_Values.txt')
 
 train_size = int(len(values)*0.5) 
 test_size = len(values) - train_size
