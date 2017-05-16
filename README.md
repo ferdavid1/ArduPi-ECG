@@ -7,7 +7,6 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
 - Use ALL models on real data
 - Build Wavelet model
 - Build Chaotic model
-- Build Deep Linear Regression
 - Build NN
 - Implement thermistor??
   - This would effectively become an extremely complicated polygraph haha
