@@ -1,4 +1,4 @@
-# Ardu-Pi-ECG
+# ArduPi-ECG
 - toolkit for full HRV (heart rate variability) analysis of ECG data using standard (Linear Regression, Fourier Extrapolation) compared to groundbreaking new techniques (Wavelet transforms, Chaotic Analysis, Neural Networks)
 - script for real-time python display of bpm data from Arduino Pulse Sensor, on Arduino Uno, using Matplotlib.
 
