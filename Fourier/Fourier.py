@@ -30,8 +30,11 @@ def main():
     n_predict = 100
     extrapolation = fourierExtrapolation(x, n_predict)
     pl.plot(np.arange(0, extrapolation.size), extrapolation, 'r', label = 'extrapolation')
-    pl.plot(np.arange(0, len(x)), x, 'b', label = 'x', linewidth = 3)
+    pl.plot(np.arange(0, len(x)), x, 'b', label = 'Given Data', linewidth = 3)
     pl.legend()
+    pl.ylabel('BPM')
+    pl.xlabel('Sample')
+    pl.title('Fourier Extrapolation')
     pl.savefig('FourierExtrapolation.png')
     pl.show()
     with open('Fourier_PredValues.txt', 'w') as out:

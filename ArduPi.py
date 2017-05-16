@@ -3,17 +3,17 @@ import matplotlib.pyplot as plt
 from drawnow import *
 import atexit
 import pandas as pd
-from Modelrithm import Modelrithm
 import numpy as np
 import time 
 import sys
+import os
 
 values = []
 
 plt.ion()
 cnt=0
 
-serialArduino = serial.Serial('com3', 115200)
+serialArduino = serial.Serial('com3', 9600) #could also be set to 115200
 
 def plotValues():
     plt.title('Serial value from Arduino')
@@ -32,7 +32,7 @@ atexit.register(doAtExit)
 print("serialArduino.isOpen() = " + str(serialArduino.isOpen()))
 
 #pre-load dummy data
-for i in range(0,26):
+for i in range(0,100):
     values.append(0)
 
 # heart rate maximum = 220 - age
@@ -43,23 +43,23 @@ def Countdown(t):
         print("Please wait %d seconds for the pulse sensor to adjust to your ear pulse..." % i,
         sys.stdout.flush())
         time.sleep(1)
-    return
 
-Countdown(10)
+setup = input('Please place the clip part of the pulse sensor on the back of your earlobe, and breathe normally.')
 
-age = input("What is your age?\n")
+Countdown(30)
+
+age = input("\nWhat is your age?\n")
 athletics = input("Are you an athlete? (Y/N)\n")
 
-# while True:
-for i in range(3000):
+for i in range(4000):
     while (serialArduino.inWaiting()==0):
         pass
     print("reading line...")
-    valueRead = serialArduino.readline(500)
+    valueRead = serialArduino.readline(500) #500
 
     #check if valid value can be casted
     try:
-        valueInInt = int(valueRead)
+        valueInInt = float(valueRead)
         print(valueInInt)
         if valueInInt <= 1024:
             if valueInInt >= 0:
@@ -73,8 +73,22 @@ for i in range(3000):
     except ValueError:
         print("---")
 
+# Remove biggest outliers if there is a huge deviation from the mean
+while (max(values) - np.mean(values)) > 40 :
+    mymax = max(values)
+    values.remove(mymax)
+while (np.mean(values) - min(values)) > 40:
+    mymin = min(values)
+    values.remove(mymin)
+
+#Remove all zeroes
+while values.count(0) >= 1:
+    values.remove(0)
+
+#Output values to a txt file
 with open('Real_Values.txt', 'w') as data:
-    data.write(str(values).strip('[]'))
+    for line in values:
+        data.write(str(line) + '\n')
 
 array_values = np.array(values)
 
@@ -84,7 +98,8 @@ def Analysis():
     print("\nYour TARGET heart rate range is in: {} BPM during moderately intense physical activity\n".format(target))
     print("Your average RESTING heart rate is: {} BPM\n".format(np.mean(array_values)))
     print("Your instantaneous heart rate tended to deviate by: {}\n".format(np.std(array_values)))
-    if int(age) in range(0, 90):
+    
+    if int(age) in range(0, 100):
         if np.mean(array_values) >= 60 and np.mean(array_values) <= 100:
             print("You have a healthy resting heart rate\n")
 
@@ -98,17 +113,9 @@ def Analysis():
                 print("You are at risk for bradychardia, please consult your doctor.\n")
         else:
                 print("You are at risk for bradychardia, please consult your doctor.\n")
-    return 
+    else:
+        print('Please enter a valid age')
 
 Analysis()
 
-
-# from sklearn.cross_validation import train_test_split
-
-# trainX, testX, trainY, testY = train_test_split()
-
-# model.fit(trainX, trainY)
-# predicted = model.predict(testX)
-
-# with open('PredictedValues.csv', 'w') as pred:
-#     pred.write(predicted)
+exec(open('predictive_analysis.py').read())
