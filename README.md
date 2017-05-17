@@ -7,7 +7,9 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
 - Use ALL models on real data
 - Build Wavelet model
 - Build Chaotic model
-- Build NN
+- Build NN 
+- Adapt to ECG/EKG
+  - Fourier/ Wavelet to convert from frequency to time domain, then apply all previous techniques the same way
 - Implement thermistor??
   - This would effectively become an extremely complicated polygraph haha
   - https://www.youtube.com/watch?v=-_XkGju35MI
@@ -24,10 +26,14 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
   - http://geodus1.ta.tudelft.nl/PrivatePages/C.P.A.Wapenaar/6_Proceedings/Soc.Expl.Geoph/Seg_94b.pdf
 
 - Chaotic Analysis:
-  - http://www.scielo.br/scielo.php?script=sci_arttext&pid=S2358-04292016000500005
-  - https://www.ncbi.nlm.nih.gov/pubmed/17593181
-  - http://geoffboeing.com/2015/03/chaos-theory-logistic-map/
-  - https://www.researchgate.net/publication/306226253_Visual_Analysis_of_Nonlinear_Dynamical_Systems_Chaos_Fractals_Self-Similarity_and_the_Limits_of_Prediction
+  - For HRV:
+    - http://www.scielo.br/scielo.php?script=sci_arttext&pid=S2358-04292016000500005
+    - https://www.ncbi.nlm.nih.gov/pubmed/17593181
+    - http://geoffboeing.com/2015/03/chaos-theory-logistic-map/
+    - https://www.researchgate.net/publication/306226253_Visual_Analysis_of_Nonlinear_Dynamical_Systems_Chaos_Fractals_Self-Similarity_and_the_Limits_of_Prediction
+  - For EKG:
+    - https://math.dartmouth.edu/archive/m53f07/public_html/proj/MehtaMiller.pdf
+    - http://aip.scitation.org/doi/10.1063/1.166330
 
 ## Visualization Tools:
 - Linear, Fourier, Wavelet
