@@ -1,5 +1,5 @@
 # ArduPi-ECG
-- toolkit for full HRV (heart rate variability) analysis of ECG data using standard (Linear Regression, Fourier Extrapolation) compared to groundbreaking new techniques (Wavelet transforms, Chaotic Analysis, Neural Networks)
+- toolkit for full HRV (heart rate variability) analysis of Pulse Sensor, ECG/EKG data using standard (Linear Regression, Fourier Extrapolation) compared to groundbreaking new techniques (Wavelet transforms, Chaotic Analysis, Neural Networks)
 - script for real-time python display of bpm data from Arduino Pulse Sensor, on Arduino Uno, using Matplotlib.
 
 Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Numpy, PySerial, Arduino Pulse Sensor
@@ -10,6 +10,7 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
 - Build NN 
 - Adapt to ECG/EKG
   - Fourier/ Wavelet to convert from frequency to time domain, then apply all previous techniques the same way
+  - https://github.com/cdepman/pythonEKGAPI # these are the Python EKG tools (for finding QRS, etc.) 
 - Implement thermistor??
   - This would effectively become an extremely complicated polygraph haha
   - https://www.youtube.com/watch?v=-_XkGju35MI
