@@ -10,6 +10,7 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
 - Build NN
 - Implement thermistor??
   - This would effectively become an extremely complicated polygraph haha
+  - https://www.youtube.com/watch?v=-_XkGju35MI
 
 ## Relevant papers:
 - Fourier Extrapolation
@@ -34,4 +35,4 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
 - Chaos
   - Pynamical - nonlinear visualization - https://github.com/gboeing/pynamical
 - NN LR, Deep NN
-  - Tensorboard
+  - Tensorboard - https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/tensorboard/README.md
