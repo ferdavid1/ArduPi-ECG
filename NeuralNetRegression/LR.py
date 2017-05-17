@@ -59,6 +59,7 @@ with tf.Session() as sess:
     training_cost = sess.run(cost, feed_dict={X: train_X, Y: train_Y})
     print("Training cost=", training_cost, "W=", sess.run(W), "b=", sess.run(b), '\n')
     predicted = sess.run(W) * train_X + sess.run(b)
+    file_writer =  tf.summary.FileWriter('../NeuralNetRegression/', sess.graph)
     # Graphic display
     plt.plot(train_X, train_Y, 'ro', label='Original data')
     plt.plot(train_X, predicted, label='Fitted line')

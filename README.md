@@ -28,6 +28,15 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
   - http://geoffboeing.com/2015/03/chaos-theory-logistic-map/
   - https://www.researchgate.net/publication/306226253_Visual_Analysis_of_Nonlinear_Dynamical_Systems_Chaos_Fractals_Self-Similarity_and_the_Limits_of_Prediction
 
+- Deep NN:
+  - Deep NN with Wavelet
+    - HRV and BPV neural network model with wavelet based
+    algorithm calibration: https://pdfs.semanticscholar.org/8e80/4c4fb5efdce51bbdfa5c26930e8a181ddd62.pdf
+  - Deep NN with Fitzhugh-Nagumo
+    - Deep neural heart rate variability analysis: https://arxiv.org/pdf/1612.09205.pdf
+  - Deep NN with Fourier:
+    - Training Deep Fourier Neural Networks To Fit Time-Series Data: https://arxiv.org/pdf/1405.2262.pdf
+
 ## Visualization Tools:
 - Linear, Fourier, Wavelet
   - Matplotlib

@@ -33,17 +33,30 @@ print('\n***********************************\n')
 # Chaotic()
 # print('\n***********************************\n')
 
-print('Predictive Analysis: Deep Learning: Linear Regression\n')
+print('Predictive Analysis: Neural Network - Linear Regression\n')
 def NeuralNetLR():
     os.chdir('../NeuralNetRegression')
     exec(open("LR.py").read())
 NeuralNetLR()
 print('\n***********************************\n')
 
-# print('Predictive Analysis: Deep Learning: TBD\n')
+# print('Predictive Analysis: Neural Network - Fourier based\n')
 # def DeeperNN():
-#     os.chdir('../DeeperNN')
+#     os.chdir('../DeeperNN/Fourier')
 #     exec(open("NN.py").read())
 # DeeperNN()
 # print('\n***********************************\n')
 
+# print('Predictive Analysis: Neural Network - Wavelet based\n')
+# def DeeperNN():
+#     os.chdir('../DeeperNN/Wavelet')
+#     exec(open("NN.py").read())
+# DeeperNN()
+# print('\n***********************************\n')
+
+# print('Predictive Analysis: Neural Network - FitzHugh–Nagumo based\n')
+# def DeeperNN():
+#     os.chdir('../DeeperNN/Fitz-Nag')
+#     exec(open("NN.py").read())
+# DeeperNN()
+# print('\n***********************************\n')
