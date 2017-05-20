@@ -4,6 +4,7 @@
 
 Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Numpy, PySerial, Arduino Pulse Sensor
 ## TODO:
+- Use NN regression on regressive output from real data (either standard or NN LR)
 - Use ALL models on real data
 - Build Wavelet model
 - Build Chaotic model

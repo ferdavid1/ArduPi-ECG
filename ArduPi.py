@@ -27,7 +27,7 @@ def doAtExit():
     print("Close serial")
     print("serialArduino.isOpen() = " + str(serialArduino.isOpen()))
 
-atexit.register(doAtExit)
+#atexit.register(doAtExit)
 
 print("serialArduino.isOpen() = " + str(serialArduino.isOpen()))
 
@@ -118,4 +118,7 @@ def Analysis():
 
 Analysis()
 
+doAtExit()
+
 exec(open('predictive_analysis.py').read())
+

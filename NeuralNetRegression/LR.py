@@ -4,7 +4,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 rng = np.random
 
-values = pd.read_table('../Real_Values.txt')
+values = pd.read_table('MIT_1.txt')
+if len(values) & 2 == 0: # if even
+    #print(len(values))
+    nothing = None
+elif len(values) % 2 != 0: # if odd
+    values = np.array(values)
+    values = values[:-1]
 # Parameters
 learning_rate = 0.01
 training_epochs = 3000
@@ -14,7 +20,7 @@ display_step = 50
 train_size = int(len(values)*0.5) 
 test_size = len(values) - train_size
 
-train_X = values[0:(train_size -10)]
+train_X = values[0:(train_size -11)]
 train_Y = values[train_size:(len(values)-11)]
 
 n_samples = train_X.shape[0]
@@ -91,5 +97,5 @@ with tf.Session() as sess:
     plt.legend()
     plt.show()
     with open('PredValues.txt', 'w') as pred:
-        for line in predicted.get_values():
+        for line in predicted:
             pred.write(str(line).strip('[ ]') + '\n')
