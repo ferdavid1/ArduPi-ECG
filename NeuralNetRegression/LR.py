@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 rng = np.random
 
-values = pd.read_table('MIT_1.txt')
+values = pd.read_table('../Real_Values.txt')
 if len(values) & 2 == 0: # if even
     #print(len(values))
     nothing = None
@@ -66,15 +66,6 @@ with tf.Session() as sess:
     print("Training cost=", training_cost, "W=", sess.run(W), "b=", sess.run(b), '\n')
     predicted = sess.run(W) * train_X + sess.run(b)
     file_writer =  tf.summary.FileWriter('../NeuralNetRegression/', sess.graph)
-    # Graphic display
-    plt.plot(train_X, train_Y, 'ro', label='Original data')
-    plt.plot(train_X, predicted, label='Fitted line')
-    plt.ylabel('BPM')
-    plt.xlabel('Sample')
-    plt.title('Neural Net Regression - Predicted over Training')
-    plt.legend()
-    plt.savefig('NN_LR_train.png')
-    plt.show()
 
     # Testing 
     test_X = values[(train_size -10):train_size]
@@ -88,14 +79,15 @@ with tf.Session() as sess:
     print("Absolute mean square loss difference:", abs(
         training_cost - testing_cost))
 
-    plt.plot(test_X, test_Y, 'bo', label='Testing data')
-    plt.plot(train_X, sess.run(W) * train_X + sess.run(b), label='Fitted line')
+    plt.plot(values, 'r', label='Original data')
+    plt.plot(np.arange(len(values), len(predicted) + len(values)), predicted, label='Predicted')
     plt.ylabel('BPM')
     plt.xlabel('Sample')
-    plt.title('Neural Net Regression - Predicted over Test')
-    plt.savefig('NN_LR_test.png')
+    plt.title('Neural Net Regression')
     plt.legend()
-    plt.show()
+    plt.savefig('NN_LR.png')
+    #plt.show()
+
     with open('PredValues.txt', 'w') as pred:
         for line in predicted:
             pred.write(str(line).strip('[ ]') + '\n')
