@@ -6,52 +6,48 @@ import pandas as pd
 data = pd.read_table('../Real_Values.txt').get_values()
 values = [float(d) for d in data]
 
-w = pywt.Wavelet('Haar') # use the Haar wavelet model to extrapolate the data
-db8 = pywt.Wavelet('db8')
-scaling, wavelet, x = db8.wavefun()
+def blocks(x):
+    """
+    Piecewise constant function with jumps at t.
+ 
+    Constant scaler is not present in Donoho and Johnstone.
+    """
+    K = lambda x : (1 + np.sign(x))/2.
+    t = np.array([[.1, .13, .15, .23, .25, .4, .44, .65, .76, .78, .81]]).T
+    h = np.array([[4, -5, 3, -4, 5, -4.2, 2.1, 4.3, -3.1, 2.1, -4.2]]).T
+    return 3.655606 * np.sum(h*K(x-t), axis=0)
+ 
+x = np.linspace(0,1,2**11)
+print(x)
+blk = blocks(x)
 
-fig, axes = plt.subplots(1, 2, sharey=True, figsize=(8,6))
-ax1, ax2 = axes
+from scipy import stats
+import numpy as np
 
-ax1.plot(x, scaling);
-ax1.set_title('Scaling function, N=8');
-ax1.set_ylim(-1.2, 1.2);
+np.random.seed(12345)
+blck = blocks(np.linspace(0,1,2**11))
+nblck = blck + stats.norm().rvs(2**11)
 
-ax2.set_title('Wavelet, N=8');
-ax2.tick_params(labelleft=False);
-ax2.plot(x-x.mean(), wavelet);
-
-fig.tight_layout()
-# plt.show()
+true_coefs = pywt.wavedec(blck, 'db8', level=7, mode='per')
+noisy_coefs = pywt.wavedec(nblck, 'db8', level=7, mode='per')
 
 from statsmodels.robust import stand_mad
 
 sigma = stand_mad(noisy_coefs[-1])
 uthresh = sigma*np.sqrt(2*np.log(len(nblck)))
-
 denoised = noisy_coefs[:]
 
-denoised[1:] = (pywt.thresholding.soft(i, value=uthresh) for i in denoised[1:])
+denoised[1:] = (pywt.threshold(i, value=uthresh, mode='soft') for i in denoised[1:])
 
+plt.figure()
 signal = pywt.waverec(denoised, 'db8', mode='per')
 
-fig, axes = plt.subplots(1, 2, sharey=True, sharex=True,
-                         figsize=(10,8))
-ax1, ax2 = axes
+plt.plot(signal)
+plt.xlim(0,2**10)
+plt.title("Recovered Signal")
 
-ax1.plot(signal)
-ax1.set_xlim(0,2**10)
-ax1.set_title("Recovered Signal")
-ax1.margins(.1)
-
-ax2.plot(nblck)
-ax2.set_title("Noisy Signal")
-
-for ax in fig.axes:
-    ax.tick_params(labelbottom=False, top=False, bottom=False, left=False, 
-                 right=False)
     
-fig.tight_layout()
+plt.tight_layout()
 plt.show()
 # with open('Wavelet_PredValues.txt', 'w') as out:
 #     out.write(str([e for e in extrapolation]).strip('[]'))
