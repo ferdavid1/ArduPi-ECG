@@ -43,9 +43,8 @@ signal = pywt.waverec(denoised, 'db8', mode='per')
 plt.plot(values)
 plt.plot(np.arange(len(values), len(values) + len(signal)), signal)
 plt.title("Recovered Signal")
-print(signal)
     
 plt.tight_layout()
 plt.show()
-# with open('Wavelet_PredValues.txt', 'w') as out:
-#     out.write(str([e for e in extrapolation]).strip('[]'))
+with open('Wavelet_PredValues.txt', 'w') as out:
+    out.write(str([s for s in signal]).strip('[]'))

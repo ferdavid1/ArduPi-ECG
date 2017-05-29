@@ -19,12 +19,12 @@ def Fourier():
 Fourier()
 print('\n***********************************\n')
 
-# print('Predictive Analysis: Wavelet Extrapolation\n')
-# def Wavelet():
-#     os.chdir('../Wavelet')
-#     exec(open("Wavelet.py").read())
-# Wavelet()
-# print('\n***********************************\n')
+print('Predictive Analysis: Wavelet Extrapolation\n')
+def Wavelet():
+    os.chdir('../Wavelet')
+    exec(open("Wavelet.py").read())
+Wavelet()
+print('\n***********************************\n')
 
 # print('Predictive Analysis: Chaotic System\n')
 # def Chaotic():

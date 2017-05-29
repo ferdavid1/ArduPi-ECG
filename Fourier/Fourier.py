@@ -30,8 +30,8 @@ def main():
     n_predict = 100
     extrapolation = fourierExtrapolation(x, n_predict)
     pl.figure()
-    pl.plot(np.arange(0, extrapolation.size), extrapolation, 'r', label = 'extrapolation')
-    pl.plot(np.arange(0, len(x)), x, 'b', label = 'Given Data', linewidth = 3)
+    pl.plot(extrapolation, 'r', label = 'extrapolation')
+    pl.plot(x, 'b', label = 'Given Data', linewidth = 3)
     pl.legend()
     pl.ylabel('BPM')
     pl.xlabel('Sample')
