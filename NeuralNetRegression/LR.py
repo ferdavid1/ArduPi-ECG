@@ -86,7 +86,7 @@ with tf.Session() as sess:
     plt.title('Neural Net Regression')
     plt.legend()
     plt.savefig('NN_LR.png')
-    #plt.show()
+    plt.show()
 
     with open('PredValues.txt', 'w') as pred:
         for line in predicted:

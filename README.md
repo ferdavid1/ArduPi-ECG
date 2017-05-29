@@ -8,7 +8,7 @@ Requirements: Arduino Uno/Arduino IDE or Raspberry Pi, Python 3, Matplotlib, Num
 - Use ALL models on real data
 - Build Wavelet model
 - Build Chaotic model
-- Build NN 
+- Build DeepNN 
 - Adapt to ECG/EKG
   - Fourier/ Wavelet to convert from frequency to time domain, then apply all previous techniques the same way
   - https://github.com/cdepman/pythonEKGAPI # these are the Python EKG tools (for finding QRS, etc.) 
