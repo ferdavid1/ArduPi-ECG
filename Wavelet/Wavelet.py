@@ -18,7 +18,6 @@ def blocks(x):
     return 3.655606 * np.sum(h*K(x-t), axis=0)
  
 x = np.linspace(0,1,2**11)
-print(x)
 blk = blocks(x)
 
 from scipy import stats
@@ -27,9 +26,8 @@ import numpy as np
 np.random.seed(12345)
 blck = blocks(np.linspace(0,1,2**11))
 nblck = blck + stats.norm().rvs(2**11)
-
-true_coefs = pywt.wavedec(blck, 'db8', level=7, mode='per')
-noisy_coefs = pywt.wavedec(nblck, 'db8', level=7, mode='per')
+# true_coefs = pywt.wavedec(blck, 'db8', level=7, mode='per')
+noisy_coefs = pywt.wavedec(values, 'db8', level=2, mode='per')
 
 from statsmodels.robust import stand_mad
 
@@ -42,10 +40,10 @@ denoised[1:] = (pywt.threshold(i, value=uthresh, mode='soft') for i in denoised[
 plt.figure()
 signal = pywt.waverec(denoised, 'db8', mode='per')
 
-plt.plot(signal)
-plt.xlim(0,2**10)
+plt.plot(values)
+plt.plot(np.arange(len(values), len(values) + len(signal)), signal)
 plt.title("Recovered Signal")
-
+print(signal)
     
 plt.tight_layout()
 plt.show()
